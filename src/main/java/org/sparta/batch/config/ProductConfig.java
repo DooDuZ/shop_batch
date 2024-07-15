@@ -1,4 +1,4 @@
-package org.sparta.batch.jobs;
+package org.sparta.batch.config;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;

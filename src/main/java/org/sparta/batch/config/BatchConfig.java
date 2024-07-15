@@ -27,19 +27,17 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 @EnableBatchProcessing
 @RequiredArgsConstructor
-public class ReservationConfig {
+public class BatchConfig {
     private final JobRepository jobRepository;
     private final PlatformTransactionManager platformTransactionManager;
     private final JobRegistry jobRegistry;
-    private final ReservationRepository reservationRepository;
-    private final EntityManagerFactory entityManagerFactory; // EntityManagerFactory 주입
 
-    @Bean
+    /*@Bean
     public BeanPostProcessor jobRegistryBeanPostProcessor() {
         JobRegistryBeanPostProcessor postProcessor = new JobRegistryBeanPostProcessor();
         postProcessor.setJobRegistry(jobRegistry);
         return postProcessor;
-    }
+    }*/
 
     @Bean
     public  JobCompletionNotificationListener jobCompletionNotificationListener() {

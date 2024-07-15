@@ -1,8 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.wishlist;
+package org.sparta.batch.domain.entity.wishlist;
 
-import com.sparta.shop_sparta.domain.entity.product.ProductEntity;
-import com.sparta.shop_sparta.domain.entity.member.MemberEntity;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,13 +11,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.sparta.batch.domain.entity.member.MemberEntity;
+import org.sparta.batch.domain.entity.product.ProductEntity;
 
 @Entity(name = "wishList")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class WishListEntity{
+public class WishListEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long wishListId;
@@ -34,9 +33,4 @@ public class WishListEntity{
     @ToString.Exclude
     @JoinColumn(name = "productId")
     private ProductEntity productEntity;
-
-    public WishListEntity(MemberEntity memberEntity, ProductEntity productEntity) {
-        this.memberEntity = memberEntity;
-        this.productEntity = productEntity;
-    }
 }

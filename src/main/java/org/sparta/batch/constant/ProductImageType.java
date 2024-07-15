@@ -1,4 +1,4 @@
-package com.sparta.shop_sparta.constant.product;
+package org.sparta.batch.constant;
 
 public enum ProductImageType {
     HEADER,

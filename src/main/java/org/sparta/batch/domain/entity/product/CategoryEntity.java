@@ -1,6 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.product;
+package org.sparta.batch.domain.entity.product;
 
-import com.sparta.shop_sparta.domain.dto.product.CategoryDto;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,9 +25,5 @@ public class CategoryEntity {
 
     public void setItemTypeName(String categoryName) {
         this.categoryName = categoryName;
-    }
-
-    public CategoryDto toDto(){
-        return CategoryDto.builder().categoryId(this.categoryId).categoryName(this.categoryName).build();
     }
 }

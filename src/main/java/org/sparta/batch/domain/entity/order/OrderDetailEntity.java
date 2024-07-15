@@ -1,7 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.order;
+package org.sparta.batch.domain.entity.order;
 
-import com.sparta.shop_sparta.domain.dto.order.OrderDetailDto;
-import com.sparta.shop_sparta.domain.entity.product.ProductEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.sparta.batch.domain.entity.product.ProductEntity;
 
 @Entity(name="orderDetail")
 @Getter
@@ -43,10 +42,5 @@ public class OrderDetailEntity {
         this.productEntity = productEntity;
         this.amount = amount;
         this.orderEntity = orderEntity;
-    }
-
-    public OrderDetailDto toDto(){
-        return OrderDetailDto.builder().orderDetailId(this.orderDetailId).orderId(this.orderEntity.getOrderId())
-                .amount(this.amount).build();
     }
 }

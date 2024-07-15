@@ -1,7 +1,6 @@
-package com.sparta.shop_sparta.domain.entity.product;
+package org.sparta.batch.domain.entity.product;
 
-import com.sparta.shop_sparta.constant.product.ProductStatus;
-import com.sparta.shop_sparta.domain.entity.BaseEntity;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,13 +13,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import org.sparta.batch.constant.ProductStatus;
 
 @Entity(name = "reservation")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
 public class ReservationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,16 +37,8 @@ public class ReservationEntity {
     @Column(nullable = false)
     private boolean completed;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     @ToString.Exclude
     @JoinColumn(name = "productId")
     private ProductEntity productEntity;
-
-    public void setOpenDateTime(LocalDateTime openDateTime) {
-        this.openDateTime = openDateTime;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
-    }
 }

@@ -1,4 +1,4 @@
-package com.sparta.shop_sparta.constant.member;
+package org.sparta.batch.constant;
 
 import lombok.Getter;
 

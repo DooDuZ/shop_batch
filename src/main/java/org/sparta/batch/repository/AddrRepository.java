@@ -1,8 +1,8 @@
-package com.sparta.shop_sparta.repository;
+package org.sparta.batch.repository;
 
-import com.sparta.shop_sparta.domain.entity.member.AddrEntity;
-import com.sparta.shop_sparta.domain.entity.member.MemberEntity;
 import java.util.List;
+import org.sparta.batch.domain.entity.member.AddrEntity;
+import org.sparta.batch.domain.entity.member.MemberEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

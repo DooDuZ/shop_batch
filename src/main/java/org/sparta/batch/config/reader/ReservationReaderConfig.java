@@ -1,7 +1,6 @@
 package org.sparta.batch.config.reader;
 
 import jakarta.persistence.EntityManagerFactory;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @RequiredArgsConstructor
-public class ReservationReader {
+public class ReservationReaderConfig {
     private final EntityManagerFactory entityManagerFactory;
 
     @Bean

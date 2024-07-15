@@ -1,8 +1,5 @@
-package com.sparta.shop_sparta.domain.entity;
+package org.sparta.batch.domain;
 
-
-import com.sparta.shop_sparta.constant.ServerErrorMessage;
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.PreRemove;
 
 public class BaseEntityListener {
@@ -14,6 +11,6 @@ public class BaseEntityListener {
     public void preRemove(BaseEntity entity) {
         // entity.setDelete(true);
         // entityManager. -- > 커밋
-        throw new IllegalStateException(ServerErrorMessage.PREVENT_ACTUAL_REMOVE.getMessage());
+        throw new IllegalStateException("Soft Delete 적용 - 물리적 삭제 시도 발생");
     }
 }

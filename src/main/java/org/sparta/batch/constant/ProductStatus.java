@@ -1,4 +1,4 @@
-package com.sparta.shop_sparta.constant.product;
+package org.sparta.batch.constant;
 
 public enum ProductStatus {
     NOT_PUBLISHED(1),   // 공개 전
@@ -17,15 +17,5 @@ public enum ProductStatus {
 
     public int getValue() {
         return this.value;
-    }
-
-    public static ProductStatus of(Long value){
-        for (ProductStatus status : ProductStatus.values()) {
-            if (status.getValue() == value) {
-                return status;
-            }
-        }
-
-        throw new IllegalArgumentException(ProductMessage.INVALID_STATUS.getMessage());
     }
 }

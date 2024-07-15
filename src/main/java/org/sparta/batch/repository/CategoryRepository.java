@@ -1,6 +1,6 @@
-package com.sparta.shop_sparta.repository;
+package org.sparta.batch.repository;
 
-import com.sparta.shop_sparta.domain.entity.product.CategoryEntity;
+import org.sparta.batch.domain.entity.product.CategoryEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

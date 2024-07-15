@@ -1,10 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.product;
+package org.sparta.batch.domain.entity.product;
 
-import com.sparta.shop_sparta.domain.dto.product.ProductRequestDto;
-import com.sparta.shop_sparta.domain.dto.product.ProductDto;
-import com.sparta.shop_sparta.domain.entity.BaseEntity;
-import com.sparta.shop_sparta.constant.product.ProductStatus;
-import com.sparta.shop_sparta.domain.entity.member.MemberEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -22,7 +17,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.hibernate.annotations.DynamicUpdate;
+import org.sparta.batch.constant.ProductStatus;
+import org.sparta.batch.domain.BaseEntity;
+import org.sparta.batch.domain.entity.member.MemberEntity;
 
 @Entity(name = "product")
 @Getter
@@ -60,22 +57,9 @@ public class ProductEntity extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private ProductStatus productStatus;
 
-    public ProductDto toDto() {
-        return ProductDto.builder().productId(this.productId).categoryId(this.categoryEntity.getCategoryId())
-                .productDetail(this.productDetail).productStatus(this.productStatus).productName(this.productName)
-                .sellerId(sellerEntity.getMemberId()).price(this.price).build();
-    }
-
     public void init(CategoryEntity categoryEntity, MemberEntity sellerEntity) {
         setProductStatus(ProductStatus.NOT_PUBLISHED);
         setCategoryEntity(categoryEntity);
         setSellerEntity(sellerEntity);
-    }
-
-    public void update(ProductRequestDto productRequestDto) {
-        setProductDetail(productRequestDto.getProductDetail());
-        setProductName(productRequestDto.getProductName());
-        setProductStatus(ProductStatus.of(productRequestDto.getProductStatus()));
-        setPrice(productRequestDto.getPrice());
     }
 }

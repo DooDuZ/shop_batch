@@ -1,7 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.member;
+package org.sparta.batch.domain.entity.member;
 
-import com.sparta.shop_sparta.domain.dto.member.AddrDto;
-import com.sparta.shop_sparta.domain.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,6 +12,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.sparta.batch.domain.BaseEntity;
 
 @Entity(name = "addr")
 @Getter
@@ -21,6 +20,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Builder
 public class AddrEntity extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addrId;
@@ -40,10 +40,5 @@ public class AddrEntity extends BaseEntity {
 
     public void setAddrDetail(String addr_detail) {
         this.addrDetail = addr_detail;
-    }
-
-    public AddrDto toDto() {
-        return AddrDto.builder().addr(this.addr).addrDetail(this.addrDetail).addrId(this.addrId)
-                .memberId(this.memberEntity.getMemberId()).build();
     }
 }

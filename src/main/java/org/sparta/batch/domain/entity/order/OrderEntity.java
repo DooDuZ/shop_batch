@@ -1,9 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.order;
+package org.sparta.batch.domain.entity.order;
 
-import com.sparta.shop_sparta.domain.dto.order.OrderResponseDto;
-import com.sparta.shop_sparta.domain.entity.BaseEntity;
-import com.sparta.shop_sparta.domain.entity.member.MemberEntity;
-import com.sparta.shop_sparta.constant.order.OrderStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -18,6 +14,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.sparta.batch.constant.OrderStatus;
+import org.sparta.batch.domain.BaseEntity;
+import org.sparta.batch.domain.entity.member.MemberEntity;
 
 @Entity(name = "`order`")
 @Getter
@@ -57,10 +56,5 @@ public class OrderEntity extends BaseEntity {
 
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
-    }
-
-    public OrderResponseDto toDto(){
-        return OrderResponseDto.builder().orderId(this.orderId).orderAddr(this.orderAddr).orderAddrDetail(this.orderAddrDetail)
-                .memberId(this.memberEntity.getMemberId()).orderStatus(this.orderStatus).totalPrice(this.totalPrice).build();
     }
 }

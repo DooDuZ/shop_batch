@@ -1,7 +1,5 @@
-package com.sparta.shop_sparta.domain.entity.product;
+package org.sparta.batch.domain.entity.product;
 
-import com.sparta.shop_sparta.domain.dto.product.ProductImageDto;
-import com.sparta.shop_sparta.constant.product.ProductImageType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,13 +12,16 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
+import org.sparta.batch.constant.ProductImageType;
 
 @Entity(name = "productImage")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
 public class ProductImageEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,18 +42,4 @@ public class ProductImageEntity {
     @ToString.Exclude
     @JoinColumn(name = "productId")
     private ProductEntity productEntity;
-
-    public void setProductImageType(ProductImageType productImageType) {
-        this.productImageType = productImageType;
-    }
-
-    public void setImageOrdering(Byte imageOrdering) {
-        this.imageOrdering = imageOrdering;
-    }
-
-    public ProductImageDto toDto(){
-        return ProductImageDto.builder().productImageId(this.productImageId).productImageType(this.productImageType)
-                .productId(this.productEntity.getProductId()).imageOrdering(this.imageOrdering)
-                .imagePath(this.imagePath).build();
-    }
 }

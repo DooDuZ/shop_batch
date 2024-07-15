@@ -1,4 +1,4 @@
-package org.sparta.shop_batch.listener;
+package org.sparta.batch.listener;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -6,9 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobExecutionListener;
-import org.springframework.stereotype.Component;
 
-@Component
+
 @Slf4j
 public class JobCompletionNotificationListener implements JobExecutionListener {
     private Instant startTime;
